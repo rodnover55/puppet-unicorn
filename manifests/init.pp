@@ -26,6 +26,7 @@ class unicorn (
   file { "Setting unicorn service":
     ensure  => present,
     path    => "/etc/init.d/unicorn",
+    mode    => 0755,
     content => template("unicorn/unicorn.init-d.erb")
   }
 
