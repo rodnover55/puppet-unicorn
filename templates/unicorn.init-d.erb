@@ -16,7 +16,7 @@
 set -e
 
 APP_ROOT="<%= scope.lookupvar('unicorn::working_directory') %>"
-CMD="unicorn_rails -E production -D -c '<%= scope.lookupvar('unicorn::config') %>'"
+CMD="unicorn -E production -D -c '<%= scope.lookupvar('unicorn::config') %>'"
 NAME=unicorn_redmine_rnr
 DESC="Unicorn"
 PID="<%= scope.lookupvar('unicorn::pid') %>"

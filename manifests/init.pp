@@ -11,10 +11,19 @@ class unicorn (
   $preload_app = true,
   $timeout = 30
 ) {
-  package {"unicorn":
-    provider  => "gem",
+
+  rvm_gemset { "unicorn":
+    ensure => "present"
   }
-  
+
+  rvm_gem { "unicorn/unicorn":
+    ensure => "present"
+  }
+
+  exec { "rvm wrapper unicorn unicorn_rails":
+
+  }
+
   file {"Setting unicorn config":
     ensure  => present,
     owner   => $owner,
