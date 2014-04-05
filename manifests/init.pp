@@ -41,7 +41,7 @@ class unicorn (
   }
 
   service { "unicorn":
-    require => [File["Setting unicorn service"], File["Setting unicorn config"], package["unicorn"]],
+    require => [File["Setting unicorn service"], File["Setting unicorn config"]],
     ensure => "running",
     enable => true
   }
