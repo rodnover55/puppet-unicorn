@@ -33,7 +33,7 @@ class unicorn (
     ensure => "present"
   }
 
-  exec { "rvm wrapper @unicorn unicorn_rails":
+  exec { "rvm wrapper @unicorn unicorn_rails bundler":
 
   }
 
@@ -53,7 +53,7 @@ class unicorn (
   }
 
   service { "unicorn":
-    require => [File["Setting unicorn service"], File["Setting unicorn config"]],
+    require => [File["Setting unicorn service"], File["Setting unicorn config"], File[$stderr_path], File[$stdout_path]],
     ensure => "running",
     enable => true
   }
