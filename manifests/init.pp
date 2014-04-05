@@ -12,8 +12,9 @@ class unicorn (
   $timeout = 30
 ) {
 
-  rvm_gemset { "unicorn":
-    ensure => "present"
+
+  exec { "rvm gemset create unicorn":
+    unless => "rvm gemset list | grep -c 'unicorn'"
   }
 
   rvm_gem { "unicorn/unicorn":
