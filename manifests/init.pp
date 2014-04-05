@@ -29,11 +29,11 @@ class unicorn (
     unless => "rvm gemset list | grep -c 'unicorn'"
   }
 
-  rvm_gem { ["@unicorn/unicorn", "@unicorn/bundler"]:
+  rvm_gem { ["@unicorn/unicorn", "@unicorn/bundler", "@unicorn/rake"]:
     ensure => "present"
   }
 
-  exec { "rvm wrapper @unicorn unicorn_rails bundler":
+  exec { "rvm wrapper @unicorn unicorn_rails bundler rake":
 
   }
 
