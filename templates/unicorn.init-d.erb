@@ -16,7 +16,8 @@
 set -e
 
 APP_ROOT="<%= scope.lookupvar('unicorn::working_directory') %>"
-CMD="unicorn -E production -D -c '<%= scope.lookupvar('unicorn::config') %>'"
+WRAPPER_PATH=`find /usr/local/rvm/wrappers/ -name '*@unicorn'`
+CMD="$WRAPPER_PATH/unicorn_rails -E production -D -c '<%= scope.lookupvar('unicorn::config') %>'"
 NAME=unicorn_redmine_rnr
 DESC="Unicorn"
 PID="<%= scope.lookupvar('unicorn::pid') %>"

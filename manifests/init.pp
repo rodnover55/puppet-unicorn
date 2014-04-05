@@ -11,7 +11,19 @@ class unicorn (
   $preload_app = true,
   $timeout = 30
 ) {
+  file { $stderr_path:
+    owner => root,
+    group => root,
+    mode  => 644,
+    ensure => "present"
+  }
 
+  file { $stdout_path:
+    owner => root,
+    group => root,
+    mode  => 644,
+    ensure => "present"
+  }
 
   exec { "rvm gemset create unicorn":
     unless => "rvm gemset list | grep -c 'unicorn'"
