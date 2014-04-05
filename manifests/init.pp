@@ -12,15 +12,15 @@ class unicorn (
   $timeout = 30
 ) {
   file { $stderr_path:
-    owner => root,
-    group => root,
+    owner => $owner,
+    group => $groupt,
     mode  => 644,
     ensure => "present"
   }
 
   file { $stdout_path:
-    owner => root,
-    group => root,
+    owner => $owner,
+    group => $groupt,
     mode  => 644,
     ensure => "present"
   }
