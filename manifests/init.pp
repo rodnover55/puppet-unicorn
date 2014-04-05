@@ -21,7 +21,7 @@ class unicorn (
     ensure => "present"
   }
 
-  exec { "rvm wrapper unicorn unicorn_rails":
+  exec { "rvm wrapper @unicorn unicorn_rails":
 
   }
 
