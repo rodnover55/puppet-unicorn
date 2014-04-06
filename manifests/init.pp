@@ -34,7 +34,7 @@ class unicorn (
   }
 
   exec { "rvm wrapper @unicorn unicorn_rails bundler rake":
-
+    require => Exec["rvm gemset create unicorn"]
   }
 
   file {"Setting unicorn config":
