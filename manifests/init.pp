@@ -25,17 +25,17 @@ class unicorn (
     ensure => "present"
   }
 
-  exec { "rvm gemset create unicorn":
-    unless => "rvm gemset list | grep -c 'unicorn'"
-  }
+#  exec { "rvm gemset create unicorn":
+#    unless => "rvm gemset list | grep -c 'unicorn'"
+#  }
 
-  rvm_gem { ["@unicorn/unicorn", "@unicorn/bundler", "@unicorn/rake"]:
-    ensure => "present"
-  }
+#  rvm_gem { ["@unicorn/unicorn", "@unicorn/bundler", "@unicorn/rake"]:
+#    ensure => "present"
+#  }
 
-  exec { "rvm wrapper @unicorn unicorn_rails bundler rake":
-    require => Exec["rvm gemset create unicorn"]
-  }
+#  exec { "rvm wrapper @unicorn unicorn_rails bundler rake":
+#    require => Exec["rvm gemset create unicorn"]
+#  }
 
   file {"Setting unicorn config":
     ensure  => present,
