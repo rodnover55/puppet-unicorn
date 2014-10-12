@@ -34,7 +34,7 @@ start() {
     echo -n "Starting $DESC: "
     cd "$APP_ROOT" || exit 1
 
-    su - $USER -c "$CMD"
+    su - $USER -c "$CMD" -s /bin/sh
     echo "$NAME."
 }
 
